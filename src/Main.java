@@ -25,9 +25,6 @@ public class Main {
                 scanner.next();
                 continue;
             }
-            if (input == 0) {
-                break;
-            }
             if (input == previousFloor) {
                 System.out.println("Вы уже находитесь на этом этаже, введите другой этаж для продолжения движения лифта.");
                 continue;
@@ -41,8 +38,12 @@ public class Main {
                 previousFloor = input;
                 changeFloor(floors, input);
             }
+            if (input == 0) {
+                break;
+            }
         }
         floorMovement(floors, totalSeconds);
+
     }
 
     public static void changeFloor(Queue<Integer> floors, Integer input) {
@@ -54,7 +55,6 @@ public class Main {
         while (!floors.isEmpty()) {
             System.out.print("Этаж " + floors.poll() + " -> ");
         }
-        System.out.println("Этаж 0");
         System.out.println("Время затраченное лифтом на маршрут = " + totalSeconds + " сек.");
     }
 }
