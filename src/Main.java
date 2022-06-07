@@ -52,8 +52,12 @@ public class Main {
 
     public static void floorMovement(Queue<Integer> floors, int totalSeconds) {
         System.out.println("Лифт проследовал по следующим этажам:");
-        while (!floors.isEmpty()) {
-            System.out.print("Этаж " + floors.poll() + " -> ");
+        for (Integer floor : floors) {
+            if (floor == 0) {
+                System.out.println("Этаж " +floor);
+            } else {
+                System.out.print("Этаж " + floors.poll() + " -> ");
+            }
         }
         System.out.println("Время затраченное лифтом на маршрут = " + totalSeconds + " сек.");
     }
